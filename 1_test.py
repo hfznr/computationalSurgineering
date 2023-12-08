@@ -5,7 +5,6 @@ import os
 from datetime import datetime
 import argparse
 from arducam_camera import MyCamera
-from utils import ArducamUtils
 
 def write_camera_params(fmt):
     result = json.dumps(fmt, sort_keys=True, indent=4, separators=(',',':'))
@@ -28,17 +27,14 @@ def parse_cmdline():
     return args
 
 # File for captured image
-filename = './scenes/photo-2.png'
-WIDTH = 1920
-HEIGHT = 1080
+filename = './scenes/photo.png'
 if __name__ == "__main__":
     args = parse_cmdline()
     try:
         camera = MyCamera()
         print("Open camera...")
-        camera.open_camera(args.device, WIDTH, HEIGHT)
-        # (width, height) = camera.get_framesize()
-        (width, height) = (1000, 200)
+        camera.open_camera(args.device, args.width, args.height)
+        (width, height) = camera.get_framesize()
         print("Current resolution: {}x{}".format(width, height))
         fmt = {
             'device': args.device,
@@ -56,19 +52,11 @@ if __name__ == "__main__":
         image_width = int(fmt['width'] * scale)
         image_height = int(fmt['height'] * scale)
 
-        frame = camera.get_frame()
-        frame = cv2.resize(frame, (image_width, image_height))
-        cv2.imshow("Arducam", frame)
-
         while cv2.waitKey(10) != ord('q'):
             counter+=1
             frame = camera.get_frame()
             frame = cv2.resize(frame, (image_width, image_height))
             cv2.imshow("Arducam", frame)
-            if counter == 10 :
-                write_camera_params(fmt)
-                cv2.imwrite(filename, frame)
-
             
         t1 = datetime.now()
         timediff = t1-t2
@@ -85,5 +73,3 @@ if __name__ == "__main__":
         camera.close_camera()
     except Exception as e:
         print(e)
-
-        
