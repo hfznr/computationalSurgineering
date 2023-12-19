@@ -73,3 +73,6 @@ if __name__ == "__main__":
         camera.close_camera()
     except Exception as e:
         print(e)
+
+
+"""arnau added afdghjk"""
