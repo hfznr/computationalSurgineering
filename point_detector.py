@@ -35,4 +35,17 @@ class PointDetector:
                 cv2.circle(frame, (cX, cY), 5, (255, 255, 255), -1)
 
         return frame, red_centers
+    
+    def get_mean_of_points(self, all_red_points):
+        mean_red_point = None
+        
+        if all_red_points:
+            mean_red_point = (
+                sum(x for x, y in all_red_points) / len(all_red_points),
+                sum(y for x, y in all_red_points) / len(all_red_points)
+            )
+        else:
+            mean_red_point = None
+        
+        return  mean_red_point
 

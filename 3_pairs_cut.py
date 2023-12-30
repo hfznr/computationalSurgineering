@@ -27,8 +27,10 @@ import cv2
 import os
 import json
 
+main_path = "/home/cs/Desktop/last-version/Li/"
+
 try:
-  camera_params = json.load(open("camera_params.txt", "r"))
+  camera_params = json.load(open(main_path + "camera_params.txt", "r"))
 except Exception as e:
   print(e)
   print("Please run 1_test.py first.")

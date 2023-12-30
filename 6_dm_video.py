@@ -42,8 +42,10 @@ UR = 10
 SR = 14
 SPWS = 100
 
+main_path = "/home/cs/Desktop/last-version/Li/"
+
 try:
-  camera_params = json.load(open("camera_params.txt", "r"))
+  camera_params = json.load(open(main_path + "camera_params.txt", "r"))
 except Exception as e:
   print(e)
   print("Please run 1_test.py first.")
@@ -70,7 +72,7 @@ print ("Scaled image resolution: "+str(img_width)+" x "+str(img_height))
 
 # Implementing calibration data
 print('Read calibration data and rectifying stereo pair...')
-calibration = StereoCalibration(input_folder='calib_result')
+calibration = StereoCalibration(input_folder= 'calib_result')
 
 # Initialize interface windows
 cv2.namedWindow("Image")
@@ -127,7 +129,7 @@ def load_map_settings( fName ):
     print ('Parameters loaded from file '+fName)
 
 
-load_map_settings ("3dmap_set.txt")
+load_map_settings (main_path + "3dmap_set.txt")
 
 # capture frames from the camera
 # for frame in camera.capture_continuous(capture, format="bgra", use_video_port=True, resize=(img_width,img_height)):

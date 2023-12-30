@@ -30,8 +30,9 @@ from stereovision.calibration import StereoCalibrator
 from stereovision.calibration import StereoCalibration
 from stereovision.exceptions import ChessboardNotFoundError
 
+main_path = "/home/cs/Desktop/last-version/Li/"
 try:
-  camera_params = json.load(open("camera_params.txt", "r"))
+  camera_params = json.load(open(main_path + "camera_params.txt", "r"))
 except Exception as e:
   print(e)
   print("Please run 1_test.py first.")
@@ -63,19 +64,20 @@ print ('Start cycle')
 while photo_counter != total_photos:
   photo_counter = photo_counter + 1
   print ('Import pair No ' + str(photo_counter))
-  leftName = './pairs/camera14/left_'+str(photo_counter).zfill(2)+'.png'
-  rightName = './pairs/camera14/right_'+str(photo_counter).zfill(2)+'.png'
+  leftName = main_path + 'pairs/camera14/left_'+str(photo_counter).zfill(2)+'.png'
+  rightName = main_path + '/pairs/camera14/right_'+str(photo_counter).zfill(2)+'.png'
   if os.path.isfile(leftName) and os.path.isfile(rightName):
       imgLeft = cv2.imread(leftName,1)
       imgRight = cv2.imread(rightName,1)
       try:
         calibrator._get_corners(imgLeft)
         calibrator._get_corners(imgRight)
+        calibrator.add_corners((imgLeft, imgRight), False)
       except ChessboardNotFoundError as error:
         print (error)
         print ("Pair No "+ str(photo_counter) + " ignored")
-      else:
-        calibrator.add_corners((imgLeft, imgRight), True)
+      
+        
   else : 
     print("Problem with finding the file")
         
@@ -83,17 +85,28 @@ print ('End cycle')
 
 
 print ('Starting calibration... It can take several minutes!')
-calibration = calibrator.calibrate_cameras()
-calibration.export('calib_result')
-print ('Calibration complete!')
 
 
-# Lets rectify and show last pair after  calibration
-calibration = StereoCalibration(input_folder='calib_result')
-rectified_pair = calibration.rectify((imgLeft, imgRight))
 
-cv2.imshow('Left CALIBRATED', rectified_pair[0])
-cv2.imshow('Right CALIBRATED', rectified_pair[1])
-cv2.imwrite("rectifyed_left.jpg",rectified_pair[0])
-cv2.imwrite("rectifyed_right.jpg",rectified_pair[1])
-cv2.waitKey(0)
+if calibrator.image_count > 0:
+  calibration = calibrator.calibrate_cameras()
+  calibration.export('calib_result')
+  print('Calibration complete!')
+  # Lets rectify and show last pair after  calibration
+  calibration = StereoCalibration(input_folder='calib_result')
+  rectified_pair = calibration.rectify((imgLeft, imgRight))
+
+  cv2.imshow('Left CALIBRATED', rectified_pair[0])
+  cv2.imshow('Right CALIBRATED', rectified_pair[1])
+  cv2.imwrite("rectifyed_left.jpg",rectified_pair[0])
+  cv2.imwrite("rectifyed_right.jpg",rectified_pair[1])
+  cv2.waitKey(0)
+
+else:
+    print('Not enough valid image pairs for calibration.')
+
+
+
+
+
+

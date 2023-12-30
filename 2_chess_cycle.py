@@ -30,8 +30,10 @@ import json
 import cv2
 import numpy as np
 
+main_path = "/home/cs/Desktop/last-version/Li/"
+
 try:
-  camera_params = json.load(open("camera_params.txt", "r"))
+  camera_params = json.load(open(main_path + "camera_params.txt", "r"))
 except Exception as e:
   print(e)
   print("Please run 1_test.py first.")
@@ -73,9 +75,9 @@ while True:
     t1 = datetime.now()
     cntdwn_timer = countdown - int ((t1-t2).total_seconds())
     # If cowntdown is zero - let's record next image
-    if cntdwn_timer == -1:
+    if cntdwn_timer <= -1:
       counter += 1
-      filename = './scenes/scene_'+str(img_width)+'x'+str(img_height)+'_'+\
+      filename = './new_scenes/scene_'+str(img_width)+'x'+str(img_height)+'_'+\
                   str(counter) + '.png'
       cv2.imwrite(filename, frame)
       print (' ['+str(counter)+' of '+str(total_photos)+'] '+filename)
