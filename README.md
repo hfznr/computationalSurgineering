@@ -12,6 +12,12 @@ In this project main goal is to show real time position of surgical tool using q
 - **Network Connection:** TCP Connection in local network. It can be connected from local devices in network. Just be sure that port 5555 is not used for other purposes.
 - **3D Location Simulation:** Analytical tools for post-operative outcomes and procedural optimizations.
 
+[Link to Video](https://drive.google.com/file/d/1ugEHa49tsSA7sB_yQ4dKD5UCxvya_JOo/view?usp=sharing)
+
+<img width="423" alt="Ekran Resmi 2024-03-27 04 04 58" src="https://github.com/hfznr/computationalSurgineering/assets/82381246/881008a9-15c2-4322-80fa-874107c57bcb">
+
+
+
 
 ## Getting Started
 
