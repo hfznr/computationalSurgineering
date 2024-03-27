@@ -16,6 +16,8 @@ In this project main goal is to show real time position of surgical tool using q
 
 <img width="423" alt="Ekran Resmi 2024-03-27 04 04 58" src="https://github.com/hfznr/computationalSurgineering/assets/82381246/881008a9-15c2-4322-80fa-874107c57bcb">
 
+<img width="743" alt="Ekran Resmi 2024-03-27 04 06 43" src="https://github.com/hfznr/computationalSurgineering/assets/82381246/a7165e01-aa41-4f1f-9b71-03c63b016df3">
+
 
 
 
