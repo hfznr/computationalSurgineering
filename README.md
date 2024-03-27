@@ -17,13 +17,13 @@ In this project main goal is to show real time position of surgical tool using q
 
 - **SurgicalToolDetection:** This is the iOS application that shows real time location of detected surgical tool.
 - **separated_files:** This folder has initial developments that contains main functions used in the project. You can reach each function seperately.
-- -    For example:
-  -      camera calibraion functions(new_calibration.py),
-  -      calibration results(stereo_calibration_data.npy/txt),
-  -      point detector(point_detector.py),
-  -      real time triangulation and plotter (real_time_3d_plotter.py),
-  -      video recorder,
-  -      example tcp code, etc
+  For example:
+  - camera calibraion functions(new_calibration.py),
+  - calibration results(stereo_calibration_data.npy/txt),
+  - point detector(point_detector.py),
+  - real time triangulation and plotter (real_time_3d_plotter.py),
+  - video recorder,
+  - example tcp code, etc
 - **Calibration using matlab:** To get better calibration result matlab is used. Please check: https://github.com/arnaucr24/Surgical_Instrument_Tracking_CS
 - **separated_files:** This folder contains latest version of the code with oop version. Also this part contains bundle adjustment, latest matlab calibration results, and tcp connection. You can check: https://github.com/ouazzmoh/surgical-tracking
 
