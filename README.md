@@ -25,7 +25,7 @@ In this project main goal is to show real time position of surgical tool using q
   - video recorder,
   - example tcp code, etc
 - **Calibration using matlab:** To get better calibration result matlab is used. Please check: https://github.com/arnaucr24/Surgical_Instrument_Tracking_CS
-- **separated_files:** This folder contains latest version of the code with oop version. Also this part contains bundle adjustment, latest matlab calibration results, and tcp connection. You can check: https://github.com/ouazzmoh/surgical-tracking
+- **surgical-tracking-last-version:** This folder contains latest version of the code with oop version. Also this part contains bundle adjustment, latest matlab calibration results, and tcp connection. You can check: https://github.com/ouazzmoh/surgical-tracking
 
 #### How does it work ?
 
@@ -51,9 +51,10 @@ To run :
 Before you begin, ensure you have met the following requirements:
 For application: XCode ide. 
 For hardware: Jetson Nano board, Quadcam(Arducam), jetson nano kernel, imx477 driver.
-        Check this links: - https://developer.nvidia.com/embedded/downloads/archive
-                          - https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write
-                          - https://docs.arducam.com/Nvidia-Jetson-Camera/Multi-Camera-CamArray/quick-start/
+        Check this links: 
+        - https://developer.nvidia.com/embedded/downloads/archive
+        - https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write
+        - https://docs.arducam.com/Nvidia-Jetson-Camera/Multi-Camera-CamArray/quick-start/
 
 
 ### Installation
