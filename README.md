@@ -51,9 +51,9 @@ To run :
 Before you begin, ensure you have met the following requirements:
 For application: XCode ide. 
 For hardware: Jetson Nano board, Quadcam(Arducam), jetson nano kernel, imx477 driver.
-        Check this links: https://developer.nvidia.com/embedded/downloads/archive
-                          https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write
-                          https://docs.arducam.com/Nvidia-Jetson-Camera/Multi-Camera-CamArray/quick-start/
+        Check this links: - https://developer.nvidia.com/embedded/downloads/archive
+                          - https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write
+                          - https://docs.arducam.com/Nvidia-Jetson-Camera/Multi-Camera-CamArray/quick-start/
 
 
 ### Installation
