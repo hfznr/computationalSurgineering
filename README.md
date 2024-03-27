@@ -11,7 +11,7 @@ In this project main goal is to show real time position of surgical tool using q
 - **3D point Detection:** Frameworks for simulating surgical interventions and predicting outcomes.
 - **Network Connection:** TCP Connection in local network. It can be connected from local devices in network. Just be sure that port 5555 is not used for other purposes.
 - **3D Location Simulation:** Analytical tools for post-operative outcomes and procedural optimizations.
-  
+
 
 ## Getting Started
 
@@ -27,23 +27,30 @@ In this project main goal is to show real time position of surgical tool using q
 - **Calibration using matlab:** To get better calibration result matlab is used. Please check: https://github.com/arnaucr24/Surgical_Instrument_Tracking_CS
 - **surgical-tracking-last-version:** This folder contains latest version of the code with oop version. Also this part contains bundle adjustment, latest matlab calibration results, and tcp connection. You can check: https://github.com/ouazzmoh/surgical-tracking
 
+
 #### How does it work ?
 
 * Runs main part and tcp part as subprogram. So that they can work parallel.
-Main Part
+* First run run.py, then run application.
+- - **Main Part:**
 * Instanciate the cameras and start the recording, and the video capturers
 * Calibrate for intrinsic and extrinsic parameters
 * Instanciate the detector of the instrument `src/detector_red.py`
 * Instanciate the reconstructor `src/reconstructor.py`
 * Detect and reconstruct to get the points in 3d
 * Saves 3d coordinates in mean_points.txt
-TCP Part
+- - **TCP Part:**
 * Reads 3d points from mean_points.txt
 * Send 3d position using tcp.
 * All local devices can connect and listen 3d position from device using ip:192.168.0.57 and port:5555
+- - **Application Part:**
+* Receives 3d points via tcp.
+* Changes location of surcial tool.
+* You can change view in 3d space.
 
 To run :
 `python run.py`
+`run using XCode SurgicalToolDetection`
 
 
 ### Prerequisites
@@ -51,10 +58,10 @@ To run :
 Before you begin, ensure you have met the following requirements:
 For application: XCode ide. 
 For hardware: Jetson Nano board, Quadcam(Arducam), jetson nano kernel, imx477 driver.
-        Check this links: 
-        - https://developer.nvidia.com/embedded/downloads/archive
-        - https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write
-        - https://docs.arducam.com/Nvidia-Jetson-Camera/Multi-Camera-CamArray/quick-start/
+Check this links: 
+- https://developer.nvidia.com/embedded/downloads/archive
+- https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write
+- https://docs.arducam.com/Nvidia-Jetson-Camera/Multi-Camera-CamArray/quick-start/
 
 
 ### Installation
